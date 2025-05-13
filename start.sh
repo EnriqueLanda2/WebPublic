@@ -1,1 +1,1 @@
-java -jar app.jar
+java -jar diagnostico-cds-0.0.1-SNAPSHOT.jar
