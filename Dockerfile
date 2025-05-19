@@ -2,7 +2,7 @@ FROM eclipse-temurin:17-jre-jammy
 WORKDIR /app
 
 # Copia el JAR y el archivo de propiedades
-COPY target/diagnostico-cds-0.0.1-SNAPSHOT.jar app.jar
+COPY diagnostico-cds-0.0.1-SNAPSHOT.jar app.jar
 COPY src/main/resources/railway-env.properties .  # Ajusta la ruta según tu proyecto
 
 # Asegura permisos y expone el puerto
