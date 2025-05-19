@@ -5,6 +5,9 @@
       "use": "docker",
       "config": {
         "dockerfile": "backend/Dockerfile"
+      },
+      "mixpacks": {
+        "enabled": false
       }
     },
     {
@@ -13,6 +16,9 @@
       "config": {
         "dockerfile": "frontend/Dockerfile",
         "startCommand": "nginx -g 'daemon off;'"
+      },
+      "mixpacks": {
+        "enabled": false
       }
     }
   ],
