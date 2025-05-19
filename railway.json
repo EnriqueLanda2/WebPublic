@@ -1,9 +1,4 @@
 {
-  "$schema": "https://railway.app/railway.schema.json",
-  "build": {
-    "builder": "NIXPACKS",
-    "buildCommand": "echo 'Build personalizado activado'"
-  },
   "builds": [
     {
       "src": "backend/Dockerfile",
@@ -16,21 +11,22 @@
       "src": "frontend/Dockerfile",
       "use": "docker",
       "config": {
-        "dockerfile": "frontend/Dockerfile"
+        "dockerfile": "frontend/Dockerfile",
+        "startCommand": "nginx -g 'daemon off;'"
       }
     }
   ],
   "routes": [
     {
-      "src": "/api/(.*)",
-      "dest": "/backend/$1",
-      "headers": {
-        "Access-Control-Allow-Origin": "*"
-      }
+      "src": "/cliente/(.*)",
+      "dest": "/backend/$1"
     },
     {
       "src": "/(.*)",
       "dest": "/frontend/$1"
     }
-  ]
+  ],
+  "deploy": {
+    "startCommand": "echo 'Servicios iniciados'"
+  }
 }
