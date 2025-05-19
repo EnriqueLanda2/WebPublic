@@ -3,7 +3,7 @@ WORKDIR /app
 
 # Copia el JAR y el archivo de propiedades
 COPY diagnostico-cds-0.0.1-SNAPSHOT.jar app.jar
-COPY src/main/resources/railway-env.properties .  # Ajusta la ruta según tu proyecto
+COPY railway-env.properties .  # Ajusta la ruta según tu proyecto
 
 # Asegura permisos y expone el puerto
 RUN chmod +x app.jar
