@@ -8,7 +8,7 @@
       "name": "backend",
       "sourcePath": "backend",
       "dockerfile": "Dockerfile",
-      "startCommand": "java -jar app.jar --spring.config.location=file:./railway-env.properties",
+      "startCommand": "java -jar *.jar --spring.config.location=file:./railway-env.properties",
       "environment": {
         "PORT": "8080"
       }
