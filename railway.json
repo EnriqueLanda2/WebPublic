@@ -1,25 +1,21 @@
 {
   "$schema": "https://railway.app/railway.schema.json",
   "build": {
-    "builder": "DOCKER",
-    "disableMixpacks": true
+    "builder": "nixpacks",
+    "buildCommand": "echo 'Build personalizado'"
   },
-  "builds": [
+  "services": [
     {
-      "src": "backend/Dockerfile",
-      "use": "docker",
-      "config": {
-        "dockerfile": "backend/Dockerfile",
-        "startCommand": "java -jar app.jar --spring.config.location=file:./railway-env.properties"
-      }
+      "name": "backend",
+      "sourcePath": "backend",
+      "dockerfile": "backend/Dockerfile",
+      "startCommand": "java -jar app.jar --spring.config.location=file:./railway-env.properties"
     },
     {
-      "src": "frontend/Dockerfile",
-      "use": "docker",
-      "config": {
-        "dockerfile": "frontend/Dockerfile",
-        "startCommand": "nginx -g 'daemon off;'"
-      }
+      "name": "frontend",
+      "sourcePath": "frontend",
+      "dockerfile": "frontend/Dockerfile",
+      "startCommand": "nginx -g 'daemon off;'"
     }
   ],
   "routes": [
@@ -35,8 +31,5 @@
       "src": "/(.*)",
       "dest": "/frontend/$1"
     }
-  ],
-  "deploy": {
-    "startCommand": "echo 'Servicios iniciados correctamente'"
-  }
+  ]
 }
